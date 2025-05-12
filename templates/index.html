@@ -7,13 +7,15 @@
     <title>Serviço Programado</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', filename='img/sp-logo.ico') }}">
+
 </head>
 
 <body>
     <header class="simple-header">
         <h1>Serviço Programado</h1>
         <p class="subtitle">Comunidade de desenvolvimento do Discord</p>
-        
+
         <nav class="simple-nav">
             <ul>
                 <li><a href="#sobre" class="nav-link">Sobre</a></li>
@@ -27,21 +29,22 @@
     <main class="simple-main">
         <section id="sobre" class="simple-section">
             <h2>Sobre Nós</h2>
-            <p>Somos uma comunidade de desenvolvedores que se reúne no Discord para compartilhar conhecimento, colaborar em projetos e oferecer serviços de programação.</p>
-            
+            <p>Somos uma comunidade de desenvolvedores que se reúne no Discord para compartilhar conhecimento, colaborar
+                em projetos e oferecer serviços de programação.</p>
+
             <div class="features">
                 <div class="feature-card">
                     <div class="feature-icon">👥</div>
                     <h3>Comunidade</h3>
                     <p>ajudando uns aos outros.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon">💡</div>
                     <h3>Conhecimento</h3>
                     <p>Dicas, discussões e materiais de apoio.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon">🛠️</div>
                     <h3>Serviços</h3>
@@ -53,7 +56,7 @@
         <section id="servicos" class="simple-section">
             <h2>Nossos Serviços</h2>
             <p>Oferecemos diversos serviços para a comunidade:</p>
-            
+
             <ul class="service-list">
                 <li>
                     <h3>Desenvolvimento Web</h3>
@@ -74,21 +77,34 @@
             </ul>
         </section>
 
+        <section id="servicos" class="simple-section">
+            <ul class="service-list">
+                <h2>Materiais para estudo</h2>
+                <li>
+                    <a href="/ebooks">E-Books</a>
+                </li>
+                <li>
+                    <a href="/cursos">Cursos online</a>
+                </li>
+            </ul>
+        </section>
+
         <section id="contato" class="simple-section">
             <h2>Entre em Contato</h2>
             <p>Quer fazer parte da comunidade ou solicitar um serviço?</p>
-            
+
             <div class="contact-options">
                 <div class="contact-card">
                     <h3>Discord</h3>
                     <p>Junte-se a nossa comunidade</p>
                     <a href="https://discord.gg/qYMQ53wWVx" class="simple-button discord-button">Entrar no Servidor</a>
                 </div>
-                
+
                 <div class="contact-card">
                     <h3>E-mail</h3>
                     <p>Para serviços profissionais</p>
-                    <form action="https://formsubmit.co/servico.programador@proton.me" method="POST" class="simple-form">
+                    <form action="https://formsubmit.co/servico.programador@proton.me" method="POST"
+                        class="simple-form">
                         <input type="text" name="name" placeholder="Seu nome" required autocomplete="name">
                         <input type="email" name="email" placeholder="Seu e-mail" required autocomplete="email">
                         <textarea name="message" placeholder="Sua mensagem" required></textarea>
@@ -98,7 +114,7 @@
                     </form>
                 </div>
             </div>
-            
+
             {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
             <ul class="flash-messages">
