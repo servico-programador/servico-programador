@@ -6,134 +6,442 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serviço Programado</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="{{ url_for('static', filename='img/sp-logo.ico') }}">
-
 </head>
 
 <body>
-    <header class="simple-header">
-        <h1>Serviço Programado</h1>
-        <p class="subtitle">Comunidade de desenvolvimento do Discord</p>
+    <!-- Botão de voltar ao topo -->
+    <button id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-        <nav class="simple-nav">
-            <ul>
-                <li><a href="#sobre" class="nav-link">Sobre</a></li>
-                <li><a href="#servicos" class="nav-link">Serviços</a></li>
-                <li><a href="#contato" class="nav-link">Contato</a></li>
-                <li><a href="https://discord.gg/qYMQ53wWVx" class="discord-link" target="_blank">Discord</a></li>
-            </ul>
-        </nav>
+    <!-- Cursor personalizado -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="spinner">
+            <div class="spinner-inner"></div>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-container animate__animated animate__fadeInDown">
+                <h1 class="logo">Serviço <span>Programado</span></h1>
+                <p class="subtitle">Comunidade de desenvolvimento do Discord</p>
+            </div>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#sobre" class="nav-link hover-underline">Sobre</a></li>
+                    <li><a href="#servicos" class="nav-link hover-underline">Serviços</a></li>
+                    <!-- <li><a href="#materiais" class="nav-link hover-underline">Materiais</a></li> -->
+                    <li><a href="#contato" class="nav-link hover-underline">Contato</a></li>
+                    <li><a href="https://discord.gg/qYMQ53wWVx" class="discord-btn pulse" target="_blank">
+                            <i class="fab fa-discord"></i> Discord
+                        </a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="header-wave">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path
+                    d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+                    opacity=".25" fill="var(--primary)"></path>
+                <path
+                    d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+                    opacity=".5" fill="var(--primary)"></path>
+                <path
+                    d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+                    fill="var(--primary)"></path>
+            </svg>
+        </div>
     </header>
 
-    <main class="simple-main">
-        <section id="sobre" class="simple-section">
-            <h2>Sobre Nós</h2>
-            <p>Somos uma comunidade de desenvolvedores que se reúne no Discord para compartilhar conhecimento, colaborar
-                em projetos e oferecer serviços de programação.</p>
+    <main class="main-content">
+        <section id="sobre" class="about-section animate__animated animate__fadeIn">
+            <div class="container">
+                <h2 class="section-title"><span>Sobre</span> Nós</h2>
+                <p class="section-description">Somos uma comunidade vibrante de desenvolvedores que se reúne no Discord
+                    para compartilhar conhecimento, colaborar em projetos e oferecer serviços de programação de alta
+                    qualidade.</p>
 
-            <div class="features">
-                <div class="feature-card">
-                    <div class="feature-icon">👥</div>
-                    <h3>Comunidade</h3>
-                    <p>ajudando uns aos outros.</p>
-                </div>
+                <div class="features-grid">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Comunidade Ativa</h3>
+                        <p>Um espaço colaborativo onde desenvolvedores de todos os níveis se ajudam mutuamente.</p>
+                        <div class="feature-wave"></div>
+                    </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">💡</div>
-                    <h3>Conhecimento</h3>
-                    <p>Dicas, discussões e materiais de apoio.</p>
-                </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="feature-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Conhecimento Compartilhado</h3>
+                        <p>Dicas valiosas, discussões técnicas e materiais de apoio para acelerar seu aprendizado.</p>
+                        <div class="feature-wave"></div>
+                    </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">🛠️</div>
-                    <h3>Serviços</h3>
-                    <p>Desenvolvimento sob demanda para membros da comunidade.</p>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="feature-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Serviços Profissionais</h3>
+                        <p>Desenvolvimento sob demanda com qualidade garantida para membros da comunidade.</p>
+                        <div class="feature-wave"></div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="servicos" class="simple-section">
-            <h2>Nossos Serviços</h2>
-            <p>Oferecemos diversos serviços para a comunidade:</p>
+        <section id="servicos" class="services-section">
+            <div class="container">
+                <h2 class="section-title"><span>Nossos</span> Serviços</h2>
+                <p class="section-description">Oferecemos soluções tecnológicas personalizadas para atender às suas
+                    necessidades:</p>
 
-            <ul class="service-list">
-                <li>
-                    <h3>Desenvolvimento Web</h3>
-                    <p>Sites, sistemas e aplicações web personalizadas.</p>
-                </li>
-                <li>
-                    <h3>Bots para Discord</h3>
-                    <p>Criação e customização de bots para sua comunidade.</p>
-                </li>
-                <li>
-                    <h3>APIs e Integrações</h3>
-                    <p>Conecte seus sistemas e automatize processos.</p>
-                </li>
-                <li>
-                    <h3>Ajuda Personalizada</h3>
-                    <p>Suporte individual para seus projetos.</p>
-                </li>
-            </ul>
+                <div class="services-grid">
+                    <div class="service-card" data-aos="zoom-in">
+                        <div class="service-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Desenvolvimento Web</h3>
+                        <p>Sites responsivos, sistemas web complexos e aplicações modernas com as melhores tecnologias.
+                        </p>
+                        <ul class="service-tech">
+                            <li>HTML5/CSS3</li>
+                            <li>JavaScript</li>
+                            <li>React/Vue</li>
+                            <li>Node.js</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="service-icon">
+                            <i class="fab fa-discord"></i>
+                        </div>
+                        <h3>Bots para Discord</h3>
+                        <p>Criação e customização de bots inteligentes para moderar, entreter e automatizar sua
+                            comunidade.</p>
+                        <ul class="service-tech">
+                            <li>Discord.js</li>
+                            <li>Python</li>
+                            <li>API Integration</li>
+                            <li>Custom Commands</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="service-icon">
+                            <i class="fas fa-plug"></i>
+                        </div>
+                        <h3>APIs e Integrações</h3>
+                        <p>Conexão entre sistemas diversos e automação de processos para aumentar sua produtividade.</p>
+                        <ul class="service-tech">
+                            <li>REST APIs</li>
+                            <li>GraphQL</li>
+                            <li>Webhooks</li>
+                            <li>Automação</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="service-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3>Suporte Personalizado</h3>
+                        <p>Ajuda individualizada para seus projetos, desde conceito até implementação e manutenção.</p>
+                        <ul class="service-tech">
+                            <li>Consultoria</li>
+                            <li>Code Review</li>
+                            <li>Debugging</li>
+                            <li>Otimização</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section id="servicos" class="simple-section">
-            <ul class="service-list">
-                <h2>Materiais para estudo</h2>
-                <li>
-                    <a href="/ebooks">E-Books</a>
-                </li>
-                <li>
-                    <a href="/cursos">Cursos online</a>
-                </li>
-            </ul>
+        <!-- <section id="materiais" class="materials-section">
+            <div class="container">
+                <h2 class="section-title"><span>Materiais</span> para Estudo</h2>
+                <p class="section-description">Recursos cuidadosamente selecionados para acelerar seu aprendizado em programação:</p>
+
+                <div class="materials-grid">
+                    <a href="/ebooks" class="material-card" data-aos="flip-left">
+                        <div class="material-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>E-Books Exclusivos</h3>
+                        <p>Coleção de livros digitais cobrindo desde fundamentos até tópicos avançados.</p>
+                        <span class="material-link">Explorar <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="/cursos" class="material-card" data-aos="flip-left" data-aos-delay="100">
+                        <div class="material-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Cursos Online</h3>
+                        <p>Trilhas de aprendizagem completas com projetos práticos e certificação.</p>
+                        <span class="material-link">Começar <i class="fas fa-arrow-right"></i></span>
+                    </a>
+
+                    <a href="#" class="material-card" data-aos="flip-left" data-aos-delay="200">
+                        <div class="material-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Projetos Práticos</h3>
+                        <p>Repositórios com exemplos reais para você aprender fazendo.</p>
+                        <span class="material-link">Codar <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+        </section> -->
+
+        <section id="contato" class="contact-section">
+            <div class="container">
+                <h2 class="section-title"><span>Entre em</span> Contato</h2>
+                <p class="section-description">Quer fazer parte da comunidade ou solicitar um serviço? Estamos aqui para
+                    ajudar!</p>
+
+                <div class="contact-grid">
+                    <div class="contact-card" data-aos="fade-right">
+                        <div class="contact-icon">
+                            <i class="fab fa-discord"></i>
+                        </div>
+                        <h3>Junte-se ao Discord</h3>
+                        <p>Participe da nossa comunidade ativa de desenvolvedores, tire dúvidas e colabore em projetos.
+                        </p>
+                        <a href="https://discord.gg/qYMQ53wWVx" class="contact-btn discord-btn" target="_blank">
+                            <i class="fab fa-discord"></i> Entrar no Servidor
+                        </a>
+                    </div>
+
+                    <div class="contact-card" data-aos="fade-left">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Envie um E-mail</h3>
+                        <p>Para orçamentos profissionais ou dúvidas específicas sobre nossos serviços.</p>
+
+                        <form action="https://formsubmit.co/servico.programador@proton.me" method="POST"
+                            class="contact-form">
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Seu nome" required autocomplete="name">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Seu e-mail" required autocomplete="email">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" placeholder="Sua mensagem" required></textarea>
+                                <i class="fas fa-comment"></i>
+                            </div>
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_next" value="https://servico-programador.onrender.com/obrigado">
+                            <input type="hidden" name="_template" value="table">
+                            <!-- Opcional: melhora a aparência do email -->
+                            <button type="submit" class="contact-btn submit-btn">
+                                <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section id="contato" class="simple-section">
-            <h2>Entre em Contato</h2>
-            <p>Quer fazer parte da comunidade ou solicitar um serviço?</p>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+            <div class="flash-{{ category }}">
+                <i class="fas fa-{{ 'check-circle' if category == 'success' else 'exclamation-circle' }}"></i>
+                {{ message }}
+                <span class="close-flash"><i class="fas fa-times"></i></span>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+    </main>
 
-            <div class="contact-options">
-                <div class="contact-card">
-                    <h3>Discord</h3>
-                    <p>Junte-se a nossa comunidade</p>
-                    <a href="https://discord.gg/qYMQ53wWVx" class="simple-button discord-button">Entrar no Servidor</a>
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3 class="footer-logo">Serviço <span>Programado</span></h3>
+                    <p>Comunidade de desenvolvimento do Discord</p>
+                    <div class="social-links">
+                        <a href="https://discord.gg/qYMQ53wWVx" target="_blank" aria-label="Discord"><i
+                                class="fab fa-discord"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
                 </div>
 
-                <div class="contact-card">
-                    <h3>E-mail</h3>
-                    <p>Para serviços profissionais</p>
-                    <form action="https://formsubmit.co/servico.programador@proton.me" method="POST"
-                        class="simple-form">
-                        <input type="text" name="name" placeholder="Seu nome" required autocomplete="name">
-                        <input type="email" name="email" placeholder="Seu e-mail" required autocomplete="email">
-                        <textarea name="message" placeholder="Sua mensagem" required></textarea>
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_next" value="https://servico-programador.onrender.com/obrigado">
-                        <button type="submit" class="simple-button">Enviar Mensagem</button>
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#sobre"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+                        <li><a href="#servicos"><i class="fas fa-chevron-right"></i> Serviços</a></li>
+                        <li><a href="#materiais"><i class="fas fa-chevron-right"></i> Materiais</a></li>
+                        <li><a href="#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Assine para receber atualizações e conteúdos exclusivos.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Seu e-mail">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
             </div>
 
-            {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-            <ul class="flash-messages">
-                {% for category, message in messages %}
-                <li class="flash-{{ category }}">{{ message }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-            {% endwith %}
-        </section>
-    </main>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Serviço Programado. Todos os direitos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#">Termos de Serviço</a>
+                    <a href="#">Política de Privacidade</a>
+                </div>
+            </div>
+        </div>
 
-    <footer class="simple-footer">
-        <p>© 2025 Serviço Programado - Todos os direitos reservados.</p>
-        <!-- <p class="footer-links">
-            <a href="#">Termos de Serviço</a> | 
-            <a href="#">Política de Privacidade</a>
-        </p> -->
+        <div class="footer-wave">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path
+                    d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+                    opacity=".25" fill="var(--primary)"></path>
+                <path
+                    d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+                    opacity=".5" fill="var(--primary)"></path>
+                <path
+                    d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+                    fill="var(--primary)"></path>
+            </svg>
+        </div>
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script>
+        // Inicializa AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Preloader
+        window.addEventListener('load', function () {
+            const preloader = document.querySelector('.preloader');
+            gsap.to(preloader, {
+                opacity: 0,
+                duration: 0.5,
+                onComplete: () => preloader.style.display = 'none'
+            });
+        });
+
+        // Cursor personalizado
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+
+        document.addEventListener('mousemove', (e) => {
+            gsap.to(cursor, {
+                x: e.clientX,
+                y: e.clientY,
+                duration: 0.1
+            });
+
+            gsap.to(cursorFollower, {
+                x: e.clientX,
+                y: e.clientY,
+                duration: 0.3
+            });
+        });
+
+        // Efeito hover nos links
+        const hoverElements = document.querySelectorAll('a, button, .material-card, .service-card');
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.classList.add('cursor-active');
+                cursorFollower.classList.add('cursor-follower-active');
+            });
+
+            el.addEventListener('mouseleave', () => {
+                cursor.classList.remove('cursor-active');
+                cursorFollower.classList.remove('cursor-follower-active');
+            });
+        });
+
+        // Botão de voltar ao topo
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Menu mobile
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.querySelector('.main-nav ul');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        // Fechar mensagens flash
+        document.querySelectorAll('.close-flash').forEach(button => {
+            button.addEventListener('click', function () {
+                this.parentElement.style.opacity = '0';
+                setTimeout(() => {
+                    this.parentElement.style.display = 'none';
+                }, 300);
+            });
+        });
+
+        // Efeito de digitação no título
+        const title = document.querySelector('.logo');
+        const text = title.textContent;
+        title.textContent = '';
+
+        let i = 0;
+        const typingEffect = setInterval(() => {
+            if (i < text.length) {
+                title.textContent += text.charAt(i);
+                i++;
+            } else {
+                clearInterval(typingEffect);
+            }
+        }, 100);
+    </script>
 </body>
 
 </html>
